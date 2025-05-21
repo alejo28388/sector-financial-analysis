@@ -41,6 +41,7 @@ merged_FR.pivot_table(index="comp_type", values="debt_to_equity")
 merged_FR["profitability_ratio"] = (merged_FR["Total Revenue"] - merged_FR["Total Operating Expenses"])/merged_FR["Total Revenue"]
 profit_type_ratios = merged_FR.pivot_table(index="comp_type", values="profitability_ratio")
 
+---
 
 # 📊 Visualizations
 
