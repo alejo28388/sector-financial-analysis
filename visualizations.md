@@ -4,7 +4,7 @@
 
 Shows the trend in operating revenue across Real Estate, Technology, and Consumer Goods.
 
-![Revenue by Sector](images/Revenue over the time by Sector.png)
+![Revenue by Sector](images/revenue_by_sector.png)
 
 ---
 
