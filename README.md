@@ -51,8 +51,6 @@ profit_type_ratios = merged_FR.pivot_table(index="comp_type", values="profitabil
 line_plot = sns.lineplot(data=merged_FR, x="Year", y="Operating Income", hue="comp_type")
 line_plot.set_title("Operating Income along the years")
 
-![Revenue by Sector](sector-financial-analysis/Revenue over the time by Sector.png)
-
 ---
 
 ### 2. Profitability vs. Leverage Ratio
@@ -60,8 +58,6 @@ line_plot.set_title("Operating Income along the years")
 
 df_ratios = merged_FR[merged_FR["comp_type"] == "real_est"] 
 sns.regplot(data=df_ratios, x="leverage_ratio", y="profitability_ratio", ax=axes[0, 0])
-
-![Profitability vs Debt](sector-financial-analysis/Profitability vs leverage ratio.png)
 
 ---
 
@@ -74,8 +70,6 @@ real_est_corr = df_ratios[["gross_margin", "profitability_ratio",
 
 sns.heatmap(real_est_corr, ax=axes[0, 1])
 
-![Correlation Matrix](sector-financial-analysis/Correlationship matrix between ratios.png)
-
 ---
 
 ### 4. Profitability of Top Tech Companies
@@ -85,8 +79,6 @@ a = merged_FR[merged_FR["comp_type"] == "tech"]
 c = a.pivot_table(index="company", values="profitability_ratio").reset_index() 
 sns.barplot(data=c, x="company", y="profitability_ratio", ax=axes[1, 1])
 
-![Tech Profitability](sector-financial-analysis/Profitabilty ratio in tech industry.png)
-
 ---
 
 ### 5. Leverage Capacity of Top Tech Companies
@@ -95,8 +87,6 @@ sns.barplot(data=c, x="company", y="profitability_ratio", ax=axes[1, 1])
 a = merged_FR[merged_FR["comp_type"] == "tech"]
 b = a.pivot_table(index="company", values="leverage_ratio").reset_index() 
 sns.barplot(data=b, x="company", y="leverage_ratio", ax=axes[1, 0])
-
-![Tech Debt Capacity](sector-financial-analysis/Leverage ratio in Tech industry.png)
 
 ## 📊 Visual Results
 
