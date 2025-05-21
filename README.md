@@ -92,4 +92,4 @@ sns.barplot(data=b, x="company", y="leverage_ratio", ax=axes[1, 0])
 
 See the full set of visualizations and insights here:
 
-👉 [Click to view all visualizations](sector-financial-analysis/visualizations.md)
+👉 [Click to view all visualizations](visualizations.md)
