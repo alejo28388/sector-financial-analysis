@@ -46,7 +46,7 @@ profit_type_ratios = merged_FR.pivot_table(index="comp_type", values="profitabil
 # 📊 Visualizations
 
 ### 1. Revenue Over Time by Sector
-Shows the trend in operating revenue across Real Estate, Technology, and Consumer Goods.
+# Shows the trend in operating revenue across Real Estate, Technology, and Consumer Goods.
 
 line_plot = sns.lineplot(data=merged_FR, x="Year", y="Operating Income", hue="comp_type")
 line_plot.set_title("Operating Income along the years")
