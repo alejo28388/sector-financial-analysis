@@ -88,7 +88,4 @@ a = merged_FR[merged_FR["comp_type"] == "tech"]
 b = a.pivot_table(index="company", values="leverage_ratio").reset_index() 
 sns.barplot(data=b, x="company", y="leverage_ratio", ax=axes[1, 0])
 
-## 📊 Visual Results
-#See the full set of visualizations and insights here:
 
-👉 [Click to view all visualizations]([./visualizations.md](https://github.com/alejo28388/sector-financial-analysis/tree/main/blob/visualizations.md))
