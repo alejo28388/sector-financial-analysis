@@ -56,7 +56,7 @@ line_plot.set_title("Operating Income along the years")
 ---
 
 ### 2. Profitability vs. Leverage Ratio
-Scatter plot to explore correlation between profitability and leverage.
+# Scatter plot to explore correlation between profitability and leverage.
 
 df_ratios = merged_FR[merged_FR["comp_type"] == "real_est"] 
 sns.regplot(data=df_ratios, x="leverage_ratio", y="profitability_ratio", ax=axes[0, 0])
@@ -66,7 +66,7 @@ sns.regplot(data=df_ratios, x="leverage_ratio", y="profitability_ratio", ax=axes
 ---
 
 ### 3. Correlation Matrix
-Analyzes relationships between growth margin, profitability, debt, and liquidity.
+# Analyzes relationships between growth margin, profitability, debt, and liquidity.
 
 real_est_corr = df_ratios[["gross_margin", "profitability_ratio", 
                            "debt_to_equity", "current_ratio"]
@@ -79,7 +79,7 @@ sns.heatmap(real_est_corr, ax=axes[0, 1])
 ---
 
 ### 4. Profitability of Top Tech Companies
-Comparison of Apple, Amazon, Google, Meta, Microsoft.
+# Comparison of Apple, Amazon, Google, Meta, Microsoft.
 
 a = merged_FR[merged_FR["comp_type"] == "tech"]
 c = a.pivot_table(index="company", values="profitability_ratio").reset_index() 
@@ -90,7 +90,7 @@ sns.barplot(data=c, x="company", y="profitability_ratio", ax=axes[1, 1])
 ---
 
 ### 5. Leverage Capacity of Top Tech Companies
-Shows debt-to-equity ratio across leading tech companies.
+# Shows debt-to-equity ratio across leading tech companies.
 
 a = merged_FR[merged_FR["comp_type"] == "tech"]
 b = a.pivot_table(index="company", values="leverage_ratio").reset_index() 
@@ -98,3 +98,8 @@ sns.barplot(data=b, x="company", y="leverage_ratio", ax=axes[1, 0])
 
 ![Tech Debt Capacity](sector-financial-analysis/Leverage ratio in Tech industry.png)
 
+## 📊 Visual Results
+
+See the full set of visualizations and insights here:
+
+👉 [Click to view all visualizations](visualizations.md)
