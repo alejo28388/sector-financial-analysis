@@ -42,4 +42,5 @@ merged_FR["profitability_ratio"] = (merged_FR["Total Revenue"] - merged_FR["Tota
 profit_type_ratios = merged_FR.pivot_table(index="comp_type", values="profitability_ratio")
 
 
+![Revenue over the time by Sector](https://github.com/alejo28388/sector-financial-analysis/raw/ce588bafae320b375fc44c0bd1900e7288f8848d/Revenue%20over%20the%20time%20by%20Sector.png)
 
