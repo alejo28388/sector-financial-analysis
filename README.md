@@ -42,5 +42,56 @@ merged_FR["profitability_ratio"] = (merged_FR["Total Revenue"] - merged_FR["Tota
 profit_type_ratios = merged_FR.pivot_table(index="comp_type", values="profitability_ratio")
 
 
-![Revenue over the time by Sector](https://github.com/alejo28388/sector-financial-analysis/raw/ce588bafae320b375fc44c0bd1900e7288f8848d/Revenue%20over%20the%20time%20by%20Sector.png)
+# 📊 Visualizations
+
+### 1. Revenue Over Time by Sector
+Shows the trend in operating revenue across Real Estate, Technology, and Consumer Goods.
+
+line_plot = sns.lineplot(data=merged_FR, x="Year", y="Operating Income", hue="comp_type")
+line_plot.set_title("Operating Income along the years")
+
+---
+
+### 2. Profitability vs. Leverage Ratio
+Scatter plot to explore correlation between profitability and leverage.
+
+df_ratios = merged_FR[merged_FR["comp_type"] == "real_est"] 
+sns.regplot(data=df_ratios, x="leverage_ratio", y="profitability_ratio", ax=axes[0, 0])
+
+![Profitability vs Debt](images/profitability_vs_debt.png)
+
+---
+
+### 3. Correlation Matrix
+Analyzes relationships between growth margin, profitability, debt, and liquidity.
+
+real_est_corr = df_ratios[["gross_margin", "profitability_ratio", 
+                           "debt_to_equity", "current_ratio"]
+                         ].corr()
+
+sns.heatmap(real_est_corr, ax=axes[0, 1])
+
+![Correlation Matrix](images/correlation_matrix.png)
+
+---
+
+### 4. Profitability of Top Tech Companies
+Comparison of Apple, Amazon, Google, Meta, Microsoft.
+
+a = merged_FR[merged_FR["comp_type"] == "tech"]
+c = a.pivot_table(index="company", values="profitability_ratio").reset_index() 
+sns.barplot(data=c, x="company", y="profitability_ratio", ax=axes[1, 1])
+
+![Tech Profitability](images/tech_profitability.png)
+
+---
+
+### 5. Leverage Capacity of Top Tech Companies
+Shows debt-to-equity ratio across leading tech companies.
+
+a = merged_FR[merged_FR["comp_type"] == "tech"]
+b = a.pivot_table(index="company", values="leverage_ratio").reset_index() 
+sns.barplot(data=b, x="company", y="leverage_ratio", ax=axes[1, 0])
+
+![Tech Debt Capacity](images/tech_debt_capacity.png)
 
